@@ -28,7 +28,7 @@ const Hero = () => {
           <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight">
             SatyaShield
             <span className="block text-gradient mt-2">
-              Truth Prevails Over Misinformation
+              Illuminate the Truth, Extinguish the Fake
             </span>
           </h1>
 
