@@ -15,7 +15,7 @@ const Chatbot = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Hello! I'm SatyaShield AI. I can help verify content, detect misinformation, and explain our defense system. Share a suspicious message, image URL, or ask me anything about fighting fake news!"
+      content: "🛡️ Hello! I'm SatyaShield AI, your misinformation defense assistant.\n\n✨ I can help you with:\n• Verify suspicious content & detect fake news\n• Analyze deepfakes & image manipulation\n• Explain our AI defense system\n• Guide you to become a community verifier\n• Work in Hindi, Tamil, Bengali & more languages\n\nShare any suspicious message, image URL, or ask me anything about fighting misinformation!"
     }
   ]);
   const [input, setInput] = useState("");
@@ -153,23 +153,28 @@ const Chatbot = () => {
         </Card>
 
         {/* Quick prompts */}
-        <div className="mt-6 flex flex-wrap gap-2 justify-center">
-          {[
-            "How do you detect deepfakes?",
-            "Check: 'River turned red due to pollution'",
-            "Explain the community verification process"
-          ].map((prompt, idx) => (
-            <Button
-              key={idx}
-              variant="outline"
-              size="sm"
-              onClick={() => setInput(prompt)}
-              disabled={isLoading}
-              className="text-xs"
-            >
-              {prompt}
-            </Button>
-          ))}
+        <div className="mt-6 space-y-3">
+          <p className="text-sm text-center text-muted-foreground">Try these examples:</p>
+          <div className="flex flex-wrap gap-2 justify-center">
+            {[
+              "🔍 How do you detect deepfakes?",
+              "📱 Check: 'River turned red due to pollution'",
+              "🤝 How can I become a verifier?",
+              "🌐 Do you support Hindi & Tamil?",
+              "⚡ Explain the 3-layer defense system"
+            ].map((prompt, idx) => (
+              <Button
+                key={idx}
+                variant="outline"
+                size="sm"
+                onClick={() => setInput(prompt.replace(/^[^\s]+ /, ''))}
+                disabled={isLoading}
+                className="text-xs hover:border-accent"
+              >
+                {prompt}
+              </Button>
+            ))}
+          </div>
         </div>
       </div>
     </section>

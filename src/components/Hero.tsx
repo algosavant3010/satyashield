@@ -26,9 +26,9 @@ const Hero = () => {
 
           {/* Main heading */}
           <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight">
-            Defending Truth with
+            SatyaShield
             <span className="block text-gradient mt-2">
-              AI-Powered Community
+              Truth Prevails Over Misinformation
             </span>
           </h1>
 

@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import DefenseSystem from "@/components/DefenseSystem";
 import AIAgents from "@/components/AIAgents";
@@ -9,13 +10,16 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <Hero />
-      <DefenseSystem />
-      <AIAgents />
-      <Chatbot />
-      <UseCases />
-      <CommunitySection />
-      <Footer />
+      <Header />
+      <div className="pt-16">
+        <Hero />
+        <DefenseSystem />
+        <AIAgents />
+        <Chatbot />
+        <UseCases />
+        <CommunitySection />
+        <Footer />
+      </div>
     </div>
   );
 };
