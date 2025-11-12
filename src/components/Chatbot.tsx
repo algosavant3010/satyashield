@@ -15,7 +15,7 @@ const Chatbot = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "🛡️ Hello! I'm SatyaShield AI, your misinformation defense assistant.\n\n✨ I can help you with:\n• Verify suspicious content & detect fake news\n• Analyze deepfakes & image manipulation\n• Explain our AI defense system\n• Guide you to become a community verifier\n• Work in Hindi, Tamil, Bengali & more languages\n\nShare any suspicious message, image URL, or ask me anything about fighting misinformation!"
+      content: "🛡️ **Namaste! I'm SatyaShield AI** - Your Ultra-Advanced Misinformation Detection System\n\n✨ **Elite Capabilities**:\n• 🔍 **Deep Forensics**: Detect deepfakes, audio cloning, image manipulation with 95%+ accuracy\n• 🌐 **18+ Languages**: Hindi, Tamil, Telugu, Bengali, and more\n• 🧠 **AI Analysis**: Advanced NLP, computer vision, and behavioral psychology\n• 📊 **Credibility Scoring**: Instant risk assessment (0-100 scale)\n• 🎓 **Verifier Training**: Join our community of truth defenders\n• ⚡ **Real-Time Detection**: Political, health, communal, financial misinformation\n\n**How to Use**:\n• Paste suspicious messages, links, or image URLs\n• Ask about specific claims or viral content\n• Learn verification techniques and fact-checking methods\n• Get trained as a community verifier\n\n🚀 Share any content you want verified, or ask me anything about fighting misinformation!"
     }
   ]);
   const [input, setInput] = useState("");
@@ -93,12 +93,34 @@ const Chatbot = () => {
                   className={`max-w-[80%] rounded-2xl px-4 py-3 ${
                     message.role === "user"
                       ? "bg-secondary text-secondary-foreground"
-                      : "bg-muted"
+                      : "bg-muted text-foreground"
                   }`}
                 >
-                  <p className="text-sm leading-relaxed whitespace-pre-wrap">
-                    {message.content}
-                  </p>
+                  <div className="text-sm leading-relaxed whitespace-pre-wrap break-words">
+                    {message.content.split('\n').map((line, i) => {
+                      // Handle bold markdown
+                      if (line.includes('**')) {
+                        const parts = line.split('**');
+                        return (
+                          <p key={i} className="mb-2">
+                            {parts.map((part, j) => 
+                              j % 2 === 1 ? <strong key={j} className="font-semibold">{part}</strong> : part
+                            )}
+                          </p>
+                        );
+                      }
+                      // Handle bullet points
+                      if (line.startsWith('• ') || line.startsWith('- ') || line.startsWith('✓ ') || line.startsWith('✗ ')) {
+                        return <p key={i} className="ml-2 mb-1">{line}</p>;
+                      }
+                      // Handle numbered lists
+                      if (/^\d+[.)]/.test(line.trim())) {
+                        return <p key={i} className="ml-2 mb-1">{line}</p>;
+                      }
+                      // Regular lines
+                      return line ? <p key={i} className="mb-2">{line}</p> : <br key={i} />;
+                    })}
+                  </div>
                 </div>
                 {message.role === "user" && (
                   <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
@@ -157,11 +179,12 @@ const Chatbot = () => {
           <p className="text-sm text-center text-muted-foreground">Try these examples:</p>
           <div className="flex flex-wrap gap-2 justify-center">
             {[
-              "🔍 How do you detect deepfakes?",
-              "📱 Check: 'River turned red due to pollution'",
-              "🤝 How can I become a verifier?",
-              "🌐 Do you support Hindi & Tamil?",
-              "⚡ Explain the 3-layer defense system"
+              "🔍 Analyze deepfake detection methods",
+              "📱 Verify: 'COVID vaccine causes infertility'",
+              "🎓 Train me as a community verifier",
+              "🌐 Explain credibility scoring system",
+              "🚨 Check: Fake politician speech video",
+              "💰 How to spot financial fraud deepfakes?"
             ].map((prompt, idx) => (
               <Button
                 key={idx}
