@@ -6,6 +6,7 @@ import Chatbot from "@/components/Chatbot";
 import UseCases from "@/components/UseCases";
 import CommunitySection from "@/components/CommunitySection";
 import Footer from "@/components/Footer";
+import { MediaUpload } from "@/components/MediaUpload";
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
         <Hero />
         <DefenseSystem />
         <AIAgents />
+        <MediaUpload />
         <Chatbot />
         <UseCases />
         <CommunitySection />
