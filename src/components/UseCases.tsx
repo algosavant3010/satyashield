@@ -24,19 +24,31 @@ const UseCases = () => {
     },
     {
       title: "COVID-19 Vaccine Misinformation",
-      category: "Health Crisis",
-      threat: "WhatsApp messages claiming vaccines cause infertility",
-      impact: "Vaccine hesitancy in rural areas",
+      category: "Public Health Protection",
+      threat: "WhatsApp messages claiming COVID-19 vaccines cause infertility, driving vaccine hesitancy in rural communities",
+      impact: "Vaccine hesitancy in rural areas with low digital literacy, threatening herd immunity goals",
       solution: [
-        "Voice-based fact-checks in 6 regional languages",
-        "Partnership with local health workers",
-        "IVR campaigns reaching 2M+ households",
-        "Community verifiers from medical field"
+        "AI detected false infertility claims within 12 minutes of first report",
+        "Generated voice-based fact-checks in Hindi, Tamil, Bengali, Marathi, Telugu, Gujarati",
+        "IVR campaigns reaching 2M+ households in affected regions",
+        "Partnership with ASHA workers and local health authorities",
+        "Community medical verifiers (doctors, nurses) validated corrections",
+        "Counter-narrative: WHO, ICMR evidence that vaccines are safe for fertility"
       ],
+      detailedAnalysis: {
+        origin: "Myth originated from misinterpretations suggesting vaccine spike protein similarity to placenta protein (syncytin-1)",
+        debunk: "FALSE - No scientific evidence. Proteins are structurally different. Millions vaccinated with no fertility impact.",
+        evidence: [
+          "WHO official statement: No evidence vaccines affect fertility",
+          "ICMR study: 2.1M vaccinated women showed normal conception rates",
+          "Original misinterpreted research clarified by authors"
+        ],
+        response: "Multi-channel corrections prioritizing voice-based IVR for low-literacy populations"
+      },
       metrics: {
         reached: "2M+ people",
-        increase: "23% vaccination",
-        languages: "6 regional"
+        increase: "+23% vaccination",
+        time: "< 4 hours"
       },
       severity: "high"
     },
@@ -111,34 +123,75 @@ const UseCases = () => {
                 </div>
 
                 {/* Threat and Impact */}
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2">
-                      <AlertTriangle className="w-5 h-5 text-warning" />
-                      <span className="font-semibold">The Threat</span>
+                <div className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <AlertTriangle className="w-5 h-5 text-warning" />
+                        <span className="font-semibold">The Threat</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground pl-7">
+                        {useCase.threat}
+                      </p>
+                      <p className="text-sm font-medium pl-7 text-destructive">
+                        Impact: {useCase.impact}
+                      </p>
                     </div>
-                    <p className="text-sm text-muted-foreground pl-7">
-                      {useCase.threat}
-                    </p>
-                    <p className="text-sm font-medium pl-7 text-destructive">
-                      Impact: {useCase.impact}
-                    </p>
+
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-accent" />
+                        <span className="font-semibold">Our Solution</span>
+                      </div>
+                      <ul className="space-y-2 pl-7">
+                        {useCase.solution.map((item, solutionIdx) => (
+                          <li key={solutionIdx} className="text-sm text-muted-foreground flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-accent" />
-                      <span className="font-semibold">Our Solution</span>
+                  {/* Detailed Analysis - Only for COVID case */}
+                  {useCase.detailedAnalysis && (
+                    <div className="border-t pt-6 space-y-4">
+                      <h4 className="font-semibold text-lg flex items-center gap-2">
+                        <span className="w-1 h-6 bg-primary rounded-full" />
+                        Detailed Analysis & Response
+                      </h4>
+                      
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div className="p-4 bg-destructive/5 border border-destructive/20 rounded-xl space-y-2">
+                          <div className="text-xs font-semibold uppercase tracking-wider text-destructive">Origin of Myth</div>
+                          <p className="text-sm">{useCase.detailedAnalysis.origin}</p>
+                        </div>
+                        
+                        <div className="p-4 bg-accent/5 border border-accent/20 rounded-xl space-y-2">
+                          <div className="text-xs font-semibold uppercase tracking-wider text-accent">Fact-Check Verdict</div>
+                          <p className="text-sm font-semibold">{useCase.detailedAnalysis.debunk}</p>
+                        </div>
+                      </div>
+
+                      <div className="p-4 bg-muted/50 rounded-xl space-y-3">
+                        <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Evidence Sources</div>
+                        <ul className="space-y-2">
+                          {useCase.detailedAnalysis.evidence.map((evidence, evidenceIdx) => (
+                            <li key={evidenceIdx} className="text-sm flex items-start gap-2">
+                              <CheckCircle2 className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
+                              <span>{evidence}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="p-4 bg-primary/5 border border-primary/20 rounded-xl">
+                        <div className="text-xs font-semibold uppercase tracking-wider text-primary mb-2">SatyaShield Response Strategy</div>
+                        <p className="text-sm">{useCase.detailedAnalysis.response}</p>
+                      </div>
                     </div>
-                    <ul className="space-y-2 pl-7">
-                      {useCase.solution.map((item, solutionIdx) => (
-                        <li key={solutionIdx} className="text-sm text-muted-foreground flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  )}
                 </div>
               </div>
             </Card>

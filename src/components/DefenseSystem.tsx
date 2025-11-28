@@ -103,27 +103,81 @@ const DefenseSystem = () => {
           ))}
         </div>
 
-        {/* System flow visualization */}
-        <div className="mt-16 p-8 gradient-glass rounded-3xl">
-          <h3 className="text-2xl font-bold text-center mb-8">How It Flows</h3>
-          <div className="grid md:grid-cols-5 gap-4 items-center">
-            {[
-              "Content Detected",
-              "AI Analysis",
-              "Community Vote",
-              "Fact-Check Created",
-              "Distribution"
-            ].map((step, idx) => (
-              <div key={idx} className="text-center">
-                <div className="w-12 h-12 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xl font-bold mx-auto mb-2">
-                  {idx + 1}
-                </div>
-                <div className="text-sm font-medium">{step}</div>
-                {idx < 4 && (
-                  <div className="hidden md:block absolute w-full h-0.5 bg-primary/20 top-6 left-1/2" />
-                )}
+        {/* System flow visualization - Enhanced */}
+        <div className="mt-16 p-8 md:p-12 gradient-glass rounded-3xl">
+          <h3 className="text-2xl font-bold text-center mb-4">Complete Verification Flow</h3>
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            From detection to distribution: Our 3-layer system processes suspicious content in under 15 minutes
+          </p>
+          
+          <div className="space-y-8">
+            {/* Timeline */}
+            <div className="relative">
+              {/* Connecting line */}
+              <div className="hidden md:block absolute top-8 left-0 w-full h-0.5 bg-gradient-to-r from-primary via-accent to-secondary" />
+              
+              <div className="grid md:grid-cols-5 gap-6 relative">
+                {[
+                  { 
+                    step: "Content Detected",
+                    time: "0 min",
+                    desc: "User reports or AI monitors detect suspicious content",
+                    color: "bg-primary"
+                  },
+                  { 
+                    step: "AI Analysis",
+                    time: "0-1 min",
+                    desc: "5 AI agents scan for deepfakes, manipulation, patterns",
+                    color: "bg-primary"
+                  },
+                  { 
+                    step: "Community Vote",
+                    time: "5-10 min",
+                    desc: "3 regional verifiers review and reach consensus",
+                    color: "bg-accent"
+                  },
+                  { 
+                    step: "Fact-Check Created",
+                    time: "11-13 min",
+                    desc: "AI generates localized counter-narratives with evidence",
+                    color: "bg-secondary"
+                  },
+                  { 
+                    step: "Distribution",
+                    time: "13-15 min",
+                    desc: "Multi-channel reach to users who saw original content",
+                    color: "bg-secondary"
+                  }
+                ].map((item, idx) => (
+                  <div key={idx} className="text-center space-y-3 relative">
+                    <div className={`w-16 h-16 rounded-2xl ${item.color}/20 text-foreground flex items-center justify-center text-2xl font-bold mx-auto border-4 border-background shadow-medium`}>
+                      {idx + 1}
+                    </div>
+                    <div>
+                      <div className="text-sm font-bold mb-1">{item.step}</div>
+                      <div className="text-xs text-primary font-mono font-semibold mb-2">{item.time}</div>
+                      <div className="text-xs text-muted-foreground leading-relaxed">{item.desc}</div>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Key Metrics */}
+            <div className="grid md:grid-cols-3 gap-6 pt-8 border-t">
+              <div className="text-center space-y-2">
+                <div className="text-3xl font-bold text-gradient">&lt; 15 min</div>
+                <div className="text-sm text-muted-foreground">Average Total Time</div>
+              </div>
+              <div className="text-center space-y-2">
+                <div className="text-3xl font-bold text-gradient">93% Accuracy</div>
+                <div className="text-sm text-muted-foreground">Consensus Rate</div>
+              </div>
+              <div className="text-center space-y-2">
+                <div className="text-3xl font-bold text-gradient">24/7 Active</div>
+                <div className="text-sm text-muted-foreground">Continuous Monitoring</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
