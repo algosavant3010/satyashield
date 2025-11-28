@@ -28,10 +28,10 @@ const CommunitySection = () => {
   ];
 
   const stats = [
-    { value: "5,000+", label: "Active Verifiers" },
-    { value: "28", label: "States Covered" },
-    { value: "15 min", label: "Avg Response Time" },
-    { value: "95%", label: "Consensus Rate" }
+    { value: "5,000+", label: "Active Verifiers", desc: "Growing network across India" },
+    { value: "28", label: "States Covered", desc: "Multilingual reach" },
+    { value: "5-10 min", label: "Avg Verification", desc: "Rapid community consensus" },
+    { value: "95%", label: "Consensus Rate", desc: "High-quality verifications" }
   ];
 
   const requirements = [
@@ -56,22 +56,78 @@ const CommunitySection = () => {
           </p>
         </div>
 
-        {/* Stats grid */}
+        {/* Stats grid - Enhanced */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           {stats.map((stat, idx) => (
             <div 
               key={idx}
-              className="gradient-glass rounded-2xl p-6 text-center animate-slide-up"
+              className="gradient-glass rounded-2xl p-6 text-center animate-slide-up space-y-2"
               style={{ animationDelay: `${idx * 0.1}s` }}
             >
               <div className="text-3xl md:text-4xl font-bold text-accent mb-2">
                 {stat.value}
               </div>
-              <div className="text-sm text-muted-foreground">
+              <div className="text-sm font-semibold mb-1">
                 {stat.label}
+              </div>
+              <div className="text-xs text-muted-foreground">
+                {stat.desc}
               </div>
             </div>
           ))}
+        </div>
+
+        {/* How CVN Works - New Section */}
+        <div className="mb-16 gradient-glass rounded-3xl p-8 md:p-12">
+          <h3 className="text-2xl font-bold mb-8 text-center">How Community Verification Works</h3>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-xl bg-primary/20 text-primary flex items-center justify-center text-xl font-bold">
+                1
+              </div>
+              <h4 className="font-bold text-lg">AI Pre-Screening</h4>
+              <p className="text-sm text-muted-foreground">
+                AI agents flag suspicious content and route it based on language and region to appropriate verifiers
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-xl bg-accent/20 text-accent flex items-center justify-center text-xl font-bold">
+                2
+              </div>
+              <h4 className="font-bold text-lg">Multi-Verifier Assignment</h4>
+              <p className="text-sm text-muted-foreground">
+                3 independent volunteers from relevant region receive content with standardized checklist: source credibility, fact cross-reference, visual inconsistencies
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-xl bg-secondary/20 text-secondary flex items-center justify-center text-xl font-bold">
+                3
+              </div>
+              <h4 className="font-bold text-lg">Consensus & Quality</h4>
+              <p className="text-sm text-muted-foreground">
+                Votes tallied (Real/Fake/Needs Expert). High-reputation verifiers' votes carry more weight. Complex cases escalated to regional experts
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-8 p-6 bg-muted/50 rounded-xl border border-primary/20">
+            <div className="flex items-start gap-4">
+              <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
+                <Award className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <div className="font-semibold mb-2">Quality Assurance System</div>
+                <div className="text-sm text-muted-foreground space-y-1">
+                  <p>• Performance tracked over time; low-quality verifiers flagged for retraining</p>
+                  <p>• Regional experts (journalists, academics) serve as final arbiters for complex cases</p>
+                  <p>• Training modules on fact-checking techniques required for all new verifiers</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Benefits grid */}
