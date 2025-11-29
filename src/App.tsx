@@ -4,8 +4,14 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import Auth from "./pages/Auth";
+import DetectionPortal from "./pages/DetectionPortal";
+import Pricing from "./pages/Pricing";
 import Dashboard from "./pages/Dashboard";
+import VerifierDashboard from "./pages/VerifierDashboard";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
+import SignUpSuccess from "./pages/SignUpSuccess";
+import AuthError from "./pages/AuthError";
 import NotFound from "./pages/NotFound";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
@@ -19,7 +25,12 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/auth" element={<Auth />} />
+          <Route path="/detect" element={<DetectionPortal />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/auth/login" element={<Login />} />
+          <Route path="/auth/sign-up" element={<SignUp />} />
+          <Route path="/auth/sign-up-success" element={<SignUpSuccess />} />
+          <Route path="/auth/error" element={<AuthError />} />
           <Route 
             path="/dashboard" 
             element={
@@ -28,7 +39,14 @@ const App = () => (
               </ProtectedRoute>
             } 
           />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route 
+            path="/verifier-dashboard" 
+            element={
+              <ProtectedRoute requireRole="verifier">
+                <VerifierDashboard />
+              </ProtectedRoute>
+            } 
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
