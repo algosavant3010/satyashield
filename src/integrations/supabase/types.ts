@@ -137,6 +137,89 @@ export type Database = {
         }
         Relationships: []
       }
+      verifications: {
+        Row: {
+          confidence: number
+          created_at: string | null
+          id: string
+          notes: string | null
+          request_id: string
+          verdict: string
+          verifier_id: string
+        }
+        Insert: {
+          confidence: number
+          created_at?: string | null
+          id?: string
+          notes?: string | null
+          request_id: string
+          verdict: string
+          verifier_id: string
+        }
+        Update: {
+          confidence?: number
+          created_at?: string | null
+          id?: string
+          notes?: string | null
+          request_id?: string
+          verdict?: string
+          verifier_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "verifications_request_id_fkey"
+            columns: ["request_id"]
+            isOneToOne: false
+            referencedRelation: "verification_requests"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      verifier_stats: {
+        Row: {
+          accuracy_percentage: number | null
+          badges: Json | null
+          correct_votes: number | null
+          created_at: string | null
+          current_streak: number | null
+          id: string
+          longest_streak: number | null
+          rank: number | null
+          total_points: number | null
+          total_reviews: number | null
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          accuracy_percentage?: number | null
+          badges?: Json | null
+          correct_votes?: number | null
+          created_at?: string | null
+          current_streak?: number | null
+          id?: string
+          longest_streak?: number | null
+          rank?: number | null
+          total_points?: number | null
+          total_reviews?: number | null
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          accuracy_percentage?: number | null
+          badges?: Json | null
+          correct_votes?: number | null
+          created_at?: string | null
+          current_streak?: number | null
+          id?: string
+          longest_streak?: number | null
+          rank?: number | null
+          total_points?: number | null
+          total_reviews?: number | null
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
