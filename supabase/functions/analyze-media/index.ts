@@ -163,7 +163,7 @@ Provide your analysis in JSON format with these fields:
       };
     }
 
-    // Create verification request
+    // Create verification request with proper error handling
     const { data: requestData, error: requestError } = await supabase
       .from('verification_requests')
       .insert({
@@ -172,7 +172,7 @@ Provide your analysis in JSON format with these fields:
         content_url: publicUrl,
         status: 'analyzed',
         ai_analysis: analysis,
-        final_verdict: analysis.verdict,
+        final_verdict: analysis.verdict || 'suspicious',
         language: 'english'
       })
       .select()
