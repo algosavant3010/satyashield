@@ -252,6 +252,89 @@ const Pricing = () => {
           </div>
         </div>
       </div>
+
+      {/* FAQs Section */}
+      <div className="max-w-4xl mx-auto mt-24">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-4 text-foreground">Frequently Asked Questions</h2>
+          <p className="text-muted-foreground">Everything you need to know about our pricing and business model</p>
+        </div>
+
+        <div className="space-y-4">
+          <Card className="p-6 border-border bg-card/50">
+            <h3 className="font-semibold text-lg mb-2 text-foreground">💰 How does the freemium model work?</h3>
+            <p className="text-muted-foreground">
+              Community Plan is 100% free with basic features (5 checks/day, AI analysis only). 
+              Professional Plan ($19.99/month) unlocks unlimited checks, human verification within 5-10 minutes, 
+              priority support, and API access. Enterprise gets custom solutions for high-volume needs.
+            </p>
+          </Card>
+
+          <Card className="p-6 border-border bg-card/50">
+            <h3 className="font-semibold text-lg mb-2 text-foreground">🎯 How do you ensure quality with free verifiers?</h3>
+            <p className="text-muted-foreground">
+              Our Community Verification Network uses gamification (points, badges, leaderboards) to incentivize accuracy. 
+              Each request requires 3 independent votes. Verifiers with accuracy below 70% are suspended. 
+              The system tracks accuracy, streaks, and rewards top performers with recognition and potential paid opportunities.
+            </p>
+          </Card>
+
+          <Card className="p-6 border-border bg-card/50">
+            <h3 className="font-semibold text-lg mb-2 text-foreground">⚡ Why 5-10 minutes vs 24+ hours for traditional fact-checkers?</h3>
+            <p className="text-muted-foreground">
+              We combine AI pre-screening (instant) + distributed community verification (1000+ volunteers across regions). 
+              Traditional fact-checkers rely on small centralized teams. We route requests to regional verifiers familiar 
+              with local context, enabling parallel verification at scale. AI handles initial triage; humans provide nuanced judgment.
+            </p>
+          </Card>
+
+          <Card className="p-6 border-border bg-card/50">
+            <h3 className="font-semibold text-lg mb-2 text-foreground">📱 How does WhatsApp integration work?</h3>
+            <p className="text-muted-foreground">
+              Users forward suspicious content to our WhatsApp bot. AI instantly analyzes it. If confidence is high, 
+              instant verdict is provided. If uncertain, it's routed to community verifiers. Once verified, corrections 
+              are sent back via WhatsApp to the original user and others who saw the misinformation.
+            </p>
+          </Card>
+
+          <Card className="p-6 border-border bg-card/50">
+            <h3 className="font-semibold text-lg mb-2 text-foreground">🌐 What languages do you support?</h3>
+            <p className="text-muted-foreground">
+              We support 6 major Indian languages: Hindi, Tamil, Bengali, Marathi, Telugu, and Gujarati. 
+              Our AI is specifically trained on regional misinformation patterns. Verifiers are matched by 
+              language preference to ensure cultural context understanding. English is also supported.
+            </p>
+          </Card>
+
+          <Card className="p-6 border-border bg-card/50">
+            <h3 className="font-semibold text-lg mb-2 text-foreground">🔒 How do you protect user privacy?</h3>
+            <p className="text-muted-foreground">
+              All submissions are encrypted end-to-end. We don't store personal identifiers beyond what's needed 
+              for verification. Content is anonymized before showing to verifiers. Users control their data and 
+              can request deletion anytime. We're GDPR and Indian privacy law compliant.
+            </p>
+          </Card>
+
+          <Card className="p-6 border-border bg-card/50">
+            <h3 className="font-semibold text-lg mb-2 text-foreground">🚀 Can I integrate SatyaShield into my app/website?</h3>
+            <p className="text-muted-foreground">
+              Yes! Professional Plan includes API access with detailed documentation. You can embed our verification 
+              widget, use REST APIs for batch checking, or integrate our real-time WebSocket feed for instant alerts. 
+              Enterprise plans get dedicated technical support and custom integration assistance.
+            </p>
+          </Card>
+
+          <Card className="p-6 border-border bg-card/50">
+            <h3 className="font-semibold text-lg mb-2 text-foreground">🎓 How can I become a verifier?</h3>
+            <p className="text-muted-foreground">
+              Sign up for a free account and apply for verifier status. Complete our 30-minute training module covering 
+              misinformation detection techniques, regional context awareness, and platform guidelines. Pass a 
+              10-question certification quiz (80% required). Start earning points and recognition! Top verifiers 
+              get access to paid verification opportunities.
+            </p>
+          </Card>
+        </div>
+      </div>
     </div>
   );
 };
